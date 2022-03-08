@@ -1,63 +1,49 @@
-// var miArray = [];
-// var cantidad = 0;
-// var calificaciones = [];
-// cantidad = prompt("Ingrese cantidad de alumnos");
+let n1;
+let n2;
 
-// for (var i = 0; i < cantidad; i++) {
-//   var name = prompt("Introduce un nombre del alumno");
-//   miArray.push(name);
-// }
-
-// miArray.forEach((elemento) => {
-//   document.write(elemento);
-// });
-
-const materias = {
-  fisica: ["Perez", "Pedro", "Nazareno", "Elian", "Maria"], // el primer nombre es el profesor
-  programacion: ["Gonzalez", "Pedro", "Juan", "Nazareno"],
-  logica: ["Hernandez", "Pedro", "Juan", "Nazareno", "Elian", "Maria"],
-  quimica: ["Rodriguez", "Pedro", "Juan", "Nazareno", "Elian", "Maria"],
+const sumar = (n1, n2) => {
+  return parseFloat(n1) + parseFloat(n2);
+};
+const restar = (n1, n2) => {
+  return parseFloat(n1) - parseFloat(n2);
+};
+const concatenar = (n1, n2) => {
+  return (resultado = n1.concat(n2));
+};
+const dividir = (n1, n2) => {
+  return parseFloat(n1) / parseFloat(n2);
+};
+const CalcularPorcentaje = (n1, n2) => {
+  return (n1 * 100) / n2;
 };
 
-const obtenerInformacion = (materia) => {
-  if (materias[materia] !== undefined) {
-    return [materias[materia], materia, materias];
-  } else {
-    return materias;
-  }
-};
+alert("Que operacion desea realizar?");
+let operacion = prompt(
+  "1: suma, 2: resta, 3: concatenar, 4: dividir, 5: Sacar el porcentaje"
+);
 
-const mostrarInformacion = (materia) => {
-  let informacion = obtenerInformacion(materia);
+if (operacion == 3) {
+  n1 = prompt("Ingrese primer palabra");
+  n2 = prompt("Ingrese segunda palabra");
 
-  if (informacion !== false) {
-    let profesor = informacion[0][0];
-    alumnos = informacion[0];
-    alumnos.shift();
-    document.write(`El profesor de <b>${informacion[1]}</b> es: ${profesor}<br>
-		Los alumnos son: ${alumnos}<br><br>
-		`);
-  }
-};
+  alert(` el resultado es ` + concatenar(n1, n2));
+} else if (operacion == 5) {
+  n1 = prompt("Ingrese numero");
+  n2 = prompt("Ingrese el porcentaje de ese numero");
+  let resultado = CalcularPorcentaje(n1, n2);
+  alert(` el ${n2}% de ${n1} es ${resultado}`);
+} else {
+  n1 = prompt("Ingrese primer numero");
+  n2 = prompt("Ingrese segundo numero");
+}
 
-const cantidadDeClases = (alumno) => {
-  let informacion = obtenerInformacion();
-  let clasesPresentes = [];
-  let cantidadTotal = 0;
-  for (info in informacion) {
-    if (informacion[info].includes(alumno)) {
-      cantidadTotal++;
-      clasesPresentes.push(" " + info);
-    }
-  }
-  return `${alumno} está en ${cantidadTotal} clases: ${clasesPresentes} <br>
-	`;
-};
-
-mostrarInformacion("fisica");
-mostrarInformacion("quimica");
-mostrarInformacion("programacion");
-mostrarInformacion("logica");
-
-document.write(cantidadDeClases("Nazareno"));
-document.write(cantidadDeClases("Pedro"));
+if (operacion == 1) {
+  let resultado = sumar(n1, n2);
+  alert(` el resultado de la suma es ${resultado}`);
+} else if (operacion == 2) {
+  let resultado = restar(n1, n2);
+  alert(` el resultado de la resta es ${resultado}`);
+} else if (operacion == 4) {
+  let resultado = dividir(n1, n2);
+  alert(` el resultado de la división es ${resultado}`);
+}
