@@ -1,3 +1,17 @@
+// var miArray = [];
+// var cantidad = 0;
+// var calificaciones = [];
+// cantidad = prompt("Ingrese cantidad de alumnos");
+
+// for (var i = 0; i < cantidad; i++) {
+//   var name = prompt("Introduce un nombre del alumno");
+//   miArray.push(name);
+// }
+
+// miArray.forEach((elemento) => {
+//   document.write(elemento);
+// });
+
 const materias = {
   fisica: ["Perez", "Pedro", "Nazareno", "Elian", "Maria"], // el primer nombre es el profesor
   programacion: ["Gonzalez", "Pedro", "Juan", "Nazareno"],
