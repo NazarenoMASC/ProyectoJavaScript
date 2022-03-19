@@ -1,8 +1,9 @@
 const addedCards = document.querySelectorAll(".cards");
 
 addedCards.forEach((addButton) => {
-  addButton.addEventListener("click", addToCart);
+   addButton.addEventListener("click", addToCart);
 });
+
 const cartCardsAdded = document.querySelector(".cart-container");
 
 function addToCart(event) {
@@ -30,4 +31,22 @@ function addCardToCart(cardTitle, cardPrice, cardImg) {
             `;
   cartDiv.innerHTML = divCreatedCart;
   cartCardsAdded.appendChild(cartDiv);
+
+  saveProductsLocalStorage(cartCardsAdded);
 }
+function saveProductsLocalStorage(cartCardsAdded) {
+  let productos;
+  productos = obtenerProductos();
+  productos.push(cartCardsAdded);
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
+function obtenerProductos() {
+  let productoLS;
+  if (localStorage.getItem("productos") === null) {
+    productoLS = [];
+  } else {
+    productoLS = JSON.parse(localStorage.getItem("productos"));
+  }
+  return productoLS;
+}
+
