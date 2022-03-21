@@ -30,4 +30,20 @@ function addCardToCart(cardTitle, cardPrice, cardImg) {
             `;
   cartDiv.innerHTML = divCreatedCart;
   cartCardsAdded.appendChild(cartDiv);
+  saveProductsLocalStorage(cardTitle, cardPrice, cardImg);
+}
+function saveProductsLocalStorage(cardTitle, cardPrice, cardImg) {
+  let productos;
+  productos = obtenerProductos();
+  productos.push(cardTitle, cardPrice, cardImg);
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
+function obtenerProductos() {
+  let productoLS;
+  if (localStorage.getItem("productos") === null) {
+    productoLS = [];
+  } else {
+    productoLS = JSON.parse(localStorage.getItem("productos"));
+  }
+  return productoLS;
 }
