@@ -3,7 +3,6 @@ const addedCards = document.querySelectorAll(".cards");
 addedCards.forEach((addButton) => {
   addButton.addEventListener("click", addToCart);
 });
-
 const cartCardsAdded = document.querySelector(".cart-container");
 
 function addToCart(event) {
