@@ -1,13 +1,12 @@
 const addedCards = document.querySelectorAll(".cards");
-const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 const btnComprar = document.querySelector("#compra");
 const cartCardsAdded = document.querySelector(".cart-container");
-cargarEventos();
+
 addedCards.forEach((addButton) => {
   addButton.addEventListener("click", addToCart);
 });
 function cargarEventos() {
-  vaciarCarritoBtn.addEventListener("click", (e) => {
+  btnComprar.addEventListener("click", (e) => {
     vaciarCarrito(e);
   });
 }
@@ -68,4 +67,5 @@ btnComprar.addEventListener("click", () => {
     title: "Felicitaciones!",
     text: "Tu compra ha sido procesada!",
   });
+  cargarEventos();
 });
