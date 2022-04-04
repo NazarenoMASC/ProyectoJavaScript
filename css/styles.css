@@ -74,12 +74,13 @@ section {
   font-weight: 800;
 }
 
-.cards button {
+.cards a {
   height: 40px;
+  padding-top: 10px;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   background-color: #0b1322e5;
 }
@@ -88,7 +89,6 @@ section {
   flex-direction: column;
 }
 .cart-flex-row {
-  width: 80vw;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -110,6 +110,7 @@ section {
 }
 .btn-cart button {
   padding: 0 1.5rem;
+  margin: 0 1.5rem;
   height: 40px;
   color: white;
   border: none;
